@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="HP"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-04-07 11:46:19 "/>
+        <attribute name="created" value="SFA7REVTS1RPUC1HRDlWS0JWOzIwMjItMDQtMDc7IjA4OjU4OjI0ICI7MjQ0Mw=="/>
+        <attribute name="edited" value="SFA7REVTS1RPUC1HRDlWS0JWOzIwMjItMDQtMDc7IjExOjQ2OjE5ICI7MjsyNTQ3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="IAComputador" type="String" array="True" size="3"/>
+            <declare name="Utilizador" type="Integer" array="False" size=""/>
+            <declare name="Computador" type="Integer" array="False" size=""/>
+            <declare name="InserirDados" type="String" array="False" size=""/>
+            <declare name="IAComputadorIA" type="String" array="False" size=""/>
+            <declare name="FIM" type="String" array="False" size=""/>
+            <assign variable="IAComputador[0]" expression="&quot;Pedra&quot;"/>
+            <assign variable="IAComputador[1]" expression="&quot;Papel&quot;"/>
+            <assign variable="IAComputador[2]" expression="&quot;Tesoura&quot;"/>
+            <assign variable="Utilizador" expression="0"/>
+            <assign variable="Computador" expression="0"/>
+            <output expression="&quot;Insira - Pedra, Papel, Tesoura ou FIM para terminar&quot;" newline="True"/>
+            <input variable="InserirDados"/>
+            <while expression="InserirDados &lt;&gt; &quot;FIM&quot;">
+                <assign variable="IAComputadorIA" expression="IAComputador[random(3)]"/>
+                <if expression="InserirDados == IAComputadorIA">
+                    <then>
+                        <output expression="&quot;Empate&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="InserirDados == &quot;Pedra&quot; and IAComputadorIA == &quot;Papel&quot;">
+                            <then>
+                                <output expression="&quot;IA Ganha com&quot; &amp;IAComputadorIA" newline="True"/>
+                                <assign variable="Computador" expression="Computador+1"/>
+                            </then>
+                            <else>
+                                <if expression="InserirDados == &quot;Papel&quot; and IAComputadorIA == &quot;Tesoura&quot;">
+                                    <then>
+                                        <output expression="&quot;IA Ganha com&quot; &amp;IAComputadorIA" newline="True"/>
+                                        <assign variable="Computador" expression="Computador+1"/>
+                                    </then>
+                                    <else>
+                                        <if expression="InserirDados == &quot;Tesoura&quot; and IAComputadorIA == &quot;Pedra&quot;">
+                                            <then>
+                                                <output expression="&quot;IA Ganha com&quot; &amp;IAComputadorIA" newline="True"/>
+                                                <assign variable="Computador" expression="Computador+1"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Venci&quot;" newline="True"/>
+                                                <assign variable="Utilizador" expression="Utilizador+1"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot; A classifica&#231;&#227;o do utilizador &#233;: &quot; &amp;Utilizador &amp; &quot; Computador: &quot;  &amp;Computador" newline="True"/>
+                <input variable="InserirDados"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
